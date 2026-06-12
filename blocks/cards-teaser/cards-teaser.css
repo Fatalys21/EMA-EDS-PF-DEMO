@@ -1,0 +1,182 @@
+/* Article teaser list — BCV Points Forts
+   Each teaser is its own .cards-teaser block; consecutive blocks read as one
+   continuous, divider-separated vertical list of horizontal cards. */
+
+.cards-teaser > ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.cards-teaser > ul > li {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+  padding: 30px 0;
+  border-bottom: 1px solid #8c8b8d;
+  background-color: transparent;
+}
+
+/* image */
+.cards-teaser .cards-teaser-card-image {
+  line-height: 0;
+}
+
+.cards-teaser .cards-teaser-card-image a {
+  display: block;
+}
+
+.cards-teaser .cards-teaser-card-image img {
+  width: 100%;
+  aspect-ratio: 5 / 3;
+  object-fit: cover;
+  border-radius: 0;
+}
+
+/* body */
+.cards-teaser .cards-teaser-card-body {
+  display: flex;
+  flex-direction: column;
+}
+
+.cards-teaser .cards-teaser-card-body > * {
+  margin: 0;
+}
+
+/* title — Arimo bold, green */
+.cards-teaser .cards-teaser-card-body h2,
+.cards-teaser .cards-teaser-card-body h3,
+.cards-teaser .cards-teaser-card-title {
+  order: 1;
+  margin: 0 0 12px;
+  font-family: var(--heading-font-family);
+  font-size: 23px;
+  font-weight: 700;
+  line-height: 1.1;
+  color: var(--accent-color);
+}
+
+.cards-teaser .cards-teaser-card-title a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* excerpt — Roboto, black */
+.cards-teaser .cards-teaser-card-excerpt,
+.cards-teaser .cards-teaser-card-body > p:not([class]) {
+  order: 2;
+  margin: 0 0 8px;
+  font-family: var(--body-font-family);
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1.5;
+  color: var(--text-color);
+}
+
+/* "Suite" link — green inline after excerpt */
+.cards-teaser .cards-teaser-card-suite {
+  order: 3;
+  margin: 0 0 12px;
+}
+
+.cards-teaser .cards-teaser-card-suite a {
+  font-size: 18px;
+  font-weight: 400;
+  color: var(--link-color);
+  text-decoration: none;
+}
+
+/* author byline */
+.cards-teaser .cards-teaser-card-author {
+  order: 4;
+  margin: 0 0 8px;
+  font-size: 15px;
+  font-style: normal;
+  color: var(--text-color);
+}
+
+.cards-teaser .cards-teaser-card-author em {
+  font-style: normal;
+  font-weight: 700;
+}
+
+.cards-teaser .cards-teaser-card-author a {
+  color: var(--link-color);
+  font-weight: 400;
+}
+
+/* keyword tags — uppercase grey chips (hide the "·" text separators) */
+.cards-teaser .cards-teaser-card-tags {
+  order: 5;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 8px 0 0;
+  font-size: 0;
+}
+
+.cards-teaser .cards-teaser-card-tags a {
+  font-size: 13px;
+  font-weight: 400;
+  text-transform: uppercase;
+  color: #707070;
+  text-decoration: none;
+  border: 1px solid var(--border-color);
+  padding: 2px 8px;
+}
+
+/* link hover states (grouped to keep specificity non-descending) */
+.cards-teaser .cards-teaser-card-title a:hover,
+.cards-teaser .cards-teaser-card-suite a:hover {
+  text-decoration: underline;
+}
+
+.cards-teaser .cards-teaser-card-tags a:hover {
+  color: var(--text-color);
+}
+
+/* category label + date — appear on one line at the bottom of the card */
+.cards-teaser .cards-teaser-card-category {
+  order: 6;
+  margin: 8px 0 0;
+  font-size: 15px;
+  font-weight: 400;
+  color: var(--link-color);
+}
+
+.cards-teaser .cards-teaser-card-category strong {
+  font-weight: 400;
+}
+
+.cards-teaser .cards-teaser-card-date {
+  order: 7;
+  margin: 4px 0 0;
+  font-size: 15px;
+  color: var(--text-color);
+}
+
+/* tablet / desktop — horizontal layout: image left ~41%, text right */
+@media (width >= 600px) {
+  .cards-teaser > ul > li {
+    grid-template-columns: 41% 1fr;
+    gap: 24px;
+    align-items: start;
+  }
+
+  .cards-teaser .cards-teaser-card-body h2,
+  .cards-teaser .cards-teaser-card-body h3,
+  .cards-teaser .cards-teaser-card-title {
+    font-size: 30px;
+    line-height: 33px;
+  }
+
+  .cards-teaser .cards-teaser-card-excerpt,
+  .cards-teaser .cards-teaser-card-body > p:not([class]) {
+    font-size: 20px;
+    line-height: 30px;
+  }
+
+  .cards-teaser .cards-teaser-card-suite a {
+    font-size: 20px;
+  }
+}

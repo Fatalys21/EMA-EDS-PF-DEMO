@@ -4,6 +4,8 @@ logs/*
 node_modules/*
 
 helix-importer-ui
+migration-work/navigation-validation/
+migration-work/footer-validation/
 .DS_Store
 *.bak
 .idea

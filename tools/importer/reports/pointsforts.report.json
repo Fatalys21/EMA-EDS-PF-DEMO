@@ -1,0 +1,22 @@
+{
+  "status": "success",
+  "url": "https://www.bcv.ch/pointsforts.html",
+  "path": "pointsforts",
+  "timestamp": "2026-06-12T13:25:38.976Z",
+  "title": "Le magazine de l'économie vaudoise | POINTSFORTS - BCV",
+  "template": "article-hub",
+  "blocks": [
+    "hero-article",
+    "cards-teaser",
+    "cards-teaser",
+    "cards-teaser",
+    "cards-teaser",
+    "cards-teaser",
+    "cards-teaser",
+    "cards-teaser",
+    "cards-teaser",
+    "cards-teaser",
+    "cards-teaser",
+    "fragment"
+  ]
+}

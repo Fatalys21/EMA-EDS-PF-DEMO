@@ -1,0 +1,78 @@
+{
+  "metadata": {
+    "projectType": "da"
+  },
+  "templates": [
+    {
+      "name": "article-hub",
+      "urls": [
+        "https://www.bcv.ch/pointsforts.html"
+      ],
+      "description": "Points Forts hub/listing homepage: header with nav and search, featured hero article, grid of article teaser cards with thumbnails/titles/excerpts/authors/tags/dates, sidebar (subscription, related links), pagination, footer.",
+      "sections": [
+        {
+          "section": 1,
+          "style": "light",
+          "selector": ".heroarticleteaser"
+        },
+        {
+          "section": 2,
+          "style": "light",
+          "selector": ".articleteaserlist"
+        }
+      ],
+      "blocks": [
+        {
+          "name": "hero-article",
+          "instances": [".bcv-pfc-hero-article-teaser"]
+        },
+        {
+          "name": "cards-teaser",
+          "instances": [".articleteaserlist .bcv-pfc-article-teaser"]
+        },
+        {
+          "name": "fragment",
+          "instances": [".experiencefragment .cmp-experiencefragment"]
+        }
+      ]
+    },
+    {
+      "name": "article-detail",
+      "urls": [
+        "https://www.bcv.ch/pointsforts/marches/2026/un-mois-en-3-minutes-mai-2026.html",
+        "https://www.bcv.ch/pointsforts/entrepreneurs/2026/quels-outils-pour-la-geston-de-ma-pme-.html",
+        "https://www.bcv.ch/pointsforts/votre-argent/2026/organiser-son-patrimoine-en-vue-de-sa-retraite.html",
+        "https://www.bcv.ch/pointsforts/entrepreneurs/2026/pme--quand-demander-une-garantie-bancaire.html",
+        "https://www.bcv.ch/pointsforts/dans-le-canton/2026/pib-vaudois--croissance-ralentie-dans-un-contexte-incertain.html"
+      ],
+      "description": "Points Forts article detail page: header, Kaltura video stage, article body (tags, title, lead, bullets, author byline), related articles, footer.",
+      "sections": [
+        {
+          "section": 1,
+          "style": "light",
+          "selector": ".bcv-pfc-stage"
+        },
+        {
+          "section": 2,
+          "style": "light",
+          "selector": ".bcv-pfc-tags"
+        },
+        {
+          "section": 3,
+          "style": "light",
+          "selector": ".relatedarticles"
+        }
+      ],
+      "blocks": [
+        {
+          "name": "embed-video",
+          "instances": [".bcv-bc-20-video"]
+        },
+        {
+          "name": "cards-teaser",
+          "instances": [".relatedarticles .bcv-pfc-portlet__media"]
+        }
+      ]
+    }
+  ]
+}

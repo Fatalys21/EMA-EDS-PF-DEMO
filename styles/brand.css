@@ -1,0 +1,21 @@
+/* BCV Points Forts brand tokens — extracted from https://www.bcv.ch/pointsforts.html */
+:root {
+  /* fonts */
+  --heading-font-family: "Arimo", arial, sans-serif;
+  --body-font-family: "Roboto", arial, sans-serif;
+
+  /* brand colors */
+  --background-color: #fff;
+  --text-color: #000;
+  --text-muted-color: #404040;
+  --link-color: #1f9743;
+  --link-hover-color: #009d4d;
+  --accent-color: #009d4d;
+  --light-color: #ebebeb;
+  --dark-color: #000;
+  --border-color: #d9d9d9;
+
+  /* layout */
+  --content-max-width: 1200px;
+  --nav-height: 64px;
+}

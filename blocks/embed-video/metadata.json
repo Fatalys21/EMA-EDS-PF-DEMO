@@ -1,0 +1,39 @@
+{
+  "variantName": "embed-video",
+  "baseBlock": "embed",
+  "version": "1.0.0",
+  "created": "2026-06-12T13:13:00.000Z",
+  "sourceContext": {
+    "originUrl": "https://www.bcv.ch/pointsforts/marches/2026/un-mois-en-3-minutes-mai-2026.html",
+    "originPage": "Points Forts article detail page (video-led article)",
+    "blockPosition": "top"
+  },
+  "visualCharacteristics": {
+    "colorScheme": "light",
+    "density": "spacious",
+    "purpose": "article-video-embed",
+    "imagePattern": "large"
+  },
+  "contentPattern": {
+    "structure": "poster image + video URL (click-to-load player)",
+    "buttonCount": 1,
+    "imageCount": 1
+  },
+  "reuseGuidance": {
+    "suitableFor": [
+      "article pages that embed an external video (Kaltura, YouTube, Vimeo)",
+      "video-led 'stage' at the top of an article with a poster image and play overlay",
+      "any single external video embed by URL with optional poster"
+    ],
+    "notSuitableFor": [
+      "self-hosted video files (use the Video block)",
+      "image galleries or multiple rotating videos (use a carousel)",
+      "social-post-only embeds without a poster (still works, but poster click-to-load is the intended UX here)"
+    ]
+  },
+  "usage": {
+    "pagesUsing": ["/pointsforts/marches/2026/un-mois-en-3-minutes-mai-2026"],
+    "reuseCount": 1,
+    "lastUsed": "2026-06-12T13:13:00.000Z"
+  }
+}

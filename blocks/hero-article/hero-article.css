@@ -1,0 +1,183 @@
+/* hero-article — featured article teaser
+ * Source: https://www.bcv.ch/pointsforts.html (.bcv-pfc-hero-article-teaser)
+ * Layout: image-left (2/3) + text-right (1/3) on desktop, stacked on mobile.
+ * Text column is right-aligned; bottom grey border ("grey-border" treatment).
+ */
+
+.hero-article {
+  padding: 30px 0;
+  border-bottom: 1px solid #8c8b8d;
+  background-color: var(--background-color);
+}
+
+/* Authored as two rows (row1 = image, row2 = text). Stack on mobile. */
+.hero-article > div {
+  margin: 0;
+}
+
+.hero-article > div + div {
+  margin-top: 16px;
+}
+
+/* media */
+.hero-article .hero-article-media {
+  line-height: 0;
+}
+
+.hero-article .hero-article-media a {
+  display: block;
+}
+
+.hero-article .hero-article-media img {
+  width: 100%;
+  aspect-ratio: 826 / 466; /* ~1.774, matches source */
+  object-fit: cover;
+}
+
+/* content column */
+.hero-article .hero-article-content {
+  display: flex;
+  flex-direction: column;
+}
+
+/* title */
+.hero-article .hero-article-content h2 {
+  margin: 12px 0 0;
+  padding: 0 0 16px;
+  font-family: var(--heading-font-family);
+  font-size: 42px;
+  font-weight: 700;
+  line-height: 1.1;
+  color: var(--link-color);
+}
+
+/* excerpt */
+.hero-article .hero-article-excerpt {
+  margin: 0 0 20px;
+  font-family: var(--body-font-family);
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1.33;
+  color: var(--text-color);
+}
+
+/* author byline */
+.hero-article .hero-article-author {
+  margin: 13px 0;
+  font-family: var(--heading-font-family);
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 1.5;
+  color: var(--text-color);
+}
+
+.hero-article .hero-article-author a {
+  color: var(--link-color);
+  font-weight: 700;
+}
+
+.hero-article .hero-article-author em {
+  font-style: normal;
+}
+
+/* read-more "Suite" link */
+.hero-article .hero-article-suite {
+  margin: 4px 0;
+}
+
+.hero-article .hero-article-suite-link {
+  font-family: var(--heading-font-family);
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1.5;
+  color: var(--link-color);
+}
+
+.hero-article .hero-article-suite-link::before {
+  content: "\25B8"; /* small right-pointing triangle */
+  margin-right: 4px;
+  font-size: 0.8em;
+}
+
+/* keyword tags row */
+.hero-article .hero-article-tags {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px;
+  margin: 8px 0;
+  line-height: 1.5;
+}
+
+.hero-article .hero-article-tags-label {
+  margin-right: 6px;
+  font-family: var(--heading-font-family);
+  font-size: 15px;
+  font-weight: 400;
+  color: var(--text-color);
+}
+
+.hero-article .hero-article-tags a {
+  padding: 0 4px;
+  border: 1px solid var(--border-color);
+  font-family: var(--heading-font-family);
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 18px;
+  color: #707070;
+  text-transform: uppercase;
+}
+
+/* category link */
+.hero-article .hero-article-category {
+  margin: 8px 0 0;
+}
+
+.hero-article .hero-article-category a {
+  font-family: var(--heading-font-family);
+  font-size: 17px;
+  font-weight: 700;
+  line-height: 1.1;
+  color: var(--link-color);
+}
+
+/* title link inherits the heading colour (declared last for specificity order) */
+.hero-article .hero-article-content h2 a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* desktop: image-left 2/3 + text-right 1/3, right-aligned text */
+@media (width >= 900px) {
+  .hero-article {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    align-items: stretch;
+    column-gap: 0;
+  }
+
+  .hero-article > div + div {
+    margin-top: 0;
+  }
+
+  /* the row containing the content cell stretches and centers vertically */
+  .hero-article > div:last-child {
+    display: flex;
+    padding-left: 24px;
+  }
+
+  .hero-article .hero-article-content {
+    width: 100%;
+    text-align: right;
+    justify-content: center;
+  }
+
+  .hero-article .hero-article-media img {
+    height: 100%;
+  }
+
+  /* right-align the flex children that need it */
+  .hero-article .hero-article-tags {
+    justify-content: flex-end;
+  }
+}

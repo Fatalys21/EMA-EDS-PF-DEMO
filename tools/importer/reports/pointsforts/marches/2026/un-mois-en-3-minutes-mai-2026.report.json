@@ -1,0 +1,14 @@
+{
+  "status": "success",
+  "url": "https://www.bcv.ch/pointsforts/marches/2026/un-mois-en-3-minutes-mai-2026.html",
+  "path": "pointsforts/marches/2026/un-mois-en-3-minutes-mai-2026",
+  "timestamp": "2026-06-12T13:26:35.500Z",
+  "title": "Un mois en 3 minutes - mai 2026",
+  "template": "article-detail",
+  "blocks": [
+    "embed-video",
+    "cards-teaser",
+    "cards-teaser",
+    "cards-teaser"
+  ]
+}

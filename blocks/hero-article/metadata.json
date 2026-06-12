@@ -1,0 +1,37 @@
+{
+  "variantName": "hero-article",
+  "baseBlock": "hero",
+  "version": "1.0.0",
+  "created": "2026-06-12T13:10:00.000Z",
+  "sourceContext": {
+    "originUrl": "https://www.bcv.ch/pointsforts.html",
+    "originPage": "Points Forts hub/listing homepage",
+    "blockPosition": "top"
+  },
+  "visualCharacteristics": {
+    "colorScheme": "light",
+    "density": "spacious",
+    "purpose": "article-hero",
+    "imagePattern": "large"
+  },
+  "contentPattern": {
+    "structure": "image + title + excerpt + author + category/tags + read-more",
+    "buttonCount": 0,
+    "imageCount": 1
+  },
+  "reuseGuidance": {
+    "suitableFor": [
+      "featured/lead article teaser at top of a listing or hub page",
+      "prominent single-article promo with image beside title and excerpt"
+    ],
+    "notSuitableFor": [
+      "full-bleed background-image hero with overlay text",
+      "intro hero with CTA buttons and no article metadata"
+    ]
+  },
+  "usage": {
+    "pagesUsing": ["/pointsforts"],
+    "reuseCount": 1,
+    "lastUsed": "2026-06-12T13:10:00.000Z"
+  }
+}

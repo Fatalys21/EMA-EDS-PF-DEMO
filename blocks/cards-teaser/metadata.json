@@ -1,0 +1,37 @@
+{
+  "variantName": "cards-teaser",
+  "baseBlock": "cards",
+  "version": "1.0.0",
+  "created": "2026-06-12T13:10:00.000Z",
+  "sourceContext": {
+    "originUrl": "https://www.bcv.ch/pointsforts.html",
+    "originPage": "Points Forts hub/listing homepage",
+    "blockPosition": "middle"
+  },
+  "visualCharacteristics": {
+    "colorScheme": "light",
+    "density": "spacious",
+    "purpose": "article-teaser-list",
+    "imagePattern": "large"
+  },
+  "contentPattern": {
+    "structure": "thumbnail + category + title + excerpt + author + date + tags",
+    "buttonCount": 0,
+    "imageCount": 1
+  },
+  "reuseGuidance": {
+    "suitableFor": [
+      "article/news listing where each item is a horizontal teaser (image left, text right)",
+      "blog or magazine index pages with title, excerpt, author, date, and tags per item"
+    ],
+    "notSuitableFor": [
+      "compact multi-column card grids (product tiles, feature icons)",
+      "image-only galleries without text metadata"
+    ]
+  },
+  "usage": {
+    "pagesUsing": ["/pointsforts", "/pointsforts/marches/2026/un-mois-en-3-minutes-mai-2026"],
+    "reuseCount": 2,
+    "lastUsed": "2026-06-12T13:13:00.000Z"
+  }
+}

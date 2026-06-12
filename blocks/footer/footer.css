@@ -1,20 +1,82 @@
 footer {
   background-color: var(--light-color);
+  font-family: var(--body-font-family);
   font-size: var(--body-font-size-xs);
+  color: var(--text-color);
 }
 
 footer .footer > div {
   margin: auto;
-  max-width: 1200px;
-  padding: 40px 24px 24px;
+  max-width: var(--content-max-width);
+  padding: 24px 24px 8px;
 }
 
 footer .footer p {
   margin: 0;
 }
 
+/* brand logo */
+footer .footer .footer-brand img {
+  width: auto;
+  height: 36px;
+  max-width: 240px;
+}
+
+/* navigation links */
+footer .footer .footer-nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0;
+}
+
+footer .footer .footer-nav ul > li {
+  font-family: var(--heading-font-family);
+  font-size: 14px;
+  text-transform: uppercase;
+}
+
+footer .footer .footer-nav ul > li:not(:first-child) {
+  border-left: 1px solid var(--border-color);
+}
+
+footer .footer .footer-nav a:any-link {
+  color: var(--text-color);
+  padding: 2px 12px;
+  display: inline-block;
+}
+
+footer .footer .footer-nav a:hover {
+  color: var(--link-color);
+  text-decoration: none;
+}
+
+/* legal text */
+footer .footer .footer-legal {
+  padding-top: 8px;
+  padding-bottom: 24px;
+}
+
+footer .footer .footer-legal p {
+  font-size: var(--body-font-size-xs);
+  color: var(--text-color);
+  line-height: 1.5;
+}
+
+footer .footer .footer-legal a:any-link {
+  color: var(--link-color);
+  text-decoration: none;
+}
+
+footer .footer .footer-legal a:hover {
+  text-decoration: underline;
+}
+
 @media (width >= 900px) {
   footer .footer > div {
-    padding: 40px 32px 24px;
+    padding-left: 32px;
+    padding-right: 32px;
   }
 }

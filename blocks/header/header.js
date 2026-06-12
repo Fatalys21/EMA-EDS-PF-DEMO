@@ -116,7 +116,16 @@ export default async function decorate(block) {
   // load nav as fragment
   const navMeta = getMetadata('nav');
   const navPath = navMeta ? new URL(navMeta, window.location).pathname : '/nav';
-  const fragment = await loadFragment(navPath);
+  // dual-fetch: localhost / aem up serves the html-folder at /content; fall back to navPath
+  let fragment = null;
+  const resp = await fetch('/content/nav.plain.html');
+  if (resp.ok) {
+    const html = await resp.text();
+    fragment = document.createElement('div');
+    fragment.innerHTML = html;
+  } else {
+    fragment = await loadFragment(navPath);
+  }
 
   // decorate nav DOM
   block.textContent = '';

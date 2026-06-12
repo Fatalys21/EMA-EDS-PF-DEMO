@@ -1,0 +1,14 @@
+{
+  "status": "success",
+  "url": "https://www.bcv.ch/pointsforts/entrepreneurs/2026/quels-outils-pour-la-geston-de-ma-pme-.html",
+  "path": "pointsforts/entrepreneurs/2026/quels-outils-pour-la-geston-de-ma-pme",
+  "timestamp": "2026-06-12T13:26:43.057Z",
+  "title": "Quels outils pour la gestion de ma PME?",
+  "template": "article-detail",
+  "blocks": [
+    "embed-video",
+    "cards-teaser",
+    "cards-teaser",
+    "cards-teaser"
+  ]
+}
