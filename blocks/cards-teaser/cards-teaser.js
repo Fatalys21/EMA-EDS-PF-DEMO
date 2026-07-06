@@ -37,6 +37,11 @@ function classifyBody(body) {
       el.classList.add('cards-teaser-card-category');
     } else if (tagLinks.length >= 1 && tagLinks.length === links.length) {
       el.classList.add('cards-teaser-card-tags');
+      // surface a "Mots-clés:" label before the chips (matches source)
+      const label = document.createElement('span');
+      label.className = 'cards-teaser-card-tags-label';
+      label.textContent = 'Mots-clés:';
+      el.prepend(label);
     } else if (onlyEm || /^par\b/i.test(text)) {
       el.classList.add('cards-teaser-card-author');
     } else if (dateRe.test(text)) {

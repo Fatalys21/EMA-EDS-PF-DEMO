@@ -19,6 +19,8 @@
 
 /* image */
 .cards-teaser .cards-teaser-card-image {
+  position: relative;
+  overflow: hidden;
   line-height: 0;
 }
 
@@ -31,6 +33,20 @@
   aspect-ratio: 5 / 3;
   object-fit: cover;
   border-radius: 0;
+}
+
+/* "chevron" notch — white right-pointing triangle cut into the bottom-left edge */
+.cards-teaser .cards-teaser-card-image::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 0;
+  border-style: solid none solid solid;
+  border-width: 58px 0 58px 32px;
+  border-color: transparent transparent transparent #fff;
+  z-index: 2;
 }
 
 /* body */
@@ -121,8 +137,18 @@
   text-transform: uppercase;
   color: #707070;
   text-decoration: none;
-  border: 1px solid var(--border-color);
+  border: 1px solid #707070;
   padding: 2px 8px;
+}
+
+/* "Mots-clés:" label surfaced by JS before the tag chips */
+.cards-teaser .cards-teaser-card-tags-label {
+  align-self: center;
+  margin-right: 4px;
+  font-family: var(--heading-font-family);
+  font-size: 15px;
+  font-weight: 400;
+  color: var(--text-color);
 }
 
 /* link hover states (grouped to keep specificity non-descending) */
@@ -166,17 +192,17 @@
   .cards-teaser .cards-teaser-card-body h2,
   .cards-teaser .cards-teaser-card-body h3,
   .cards-teaser .cards-teaser-card-title {
-    font-size: 30px;
-    line-height: 33px;
+    font-size: 29px;
+    line-height: 32px;
   }
 
   .cards-teaser .cards-teaser-card-excerpt,
   .cards-teaser .cards-teaser-card-body > p:not([class]) {
-    font-size: 20px;
-    line-height: 30px;
+    font-size: 18px;
+    line-height: 24px;
   }
 
   .cards-teaser .cards-teaser-card-suite a {
-    font-size: 20px;
+    font-size: 18px;
   }
 }

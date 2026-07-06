@@ -1,0 +1,118 @@
+/* Points Forts hub sidebar — stacked portlets
+ * Source: https://www.bcv.ch/pointsforts.html (.bcv-pfc-portlet)
+ * Each portlet: green uppercase header bar + light-grey body panel.
+ */
+
+.hub-sidebar {
+  display: block;
+}
+
+.hub-sidebar .hub-sidebar-portlet {
+  margin: 0 0 20px;
+  background-color: var(--light-color);
+}
+
+.hub-sidebar .hub-sidebar-portlet:last-child {
+  margin-bottom: 0;
+}
+
+/* header bar */
+.hub-sidebar .hub-sidebar-portlet-title {
+  padding: 4px 16px;
+  background-color: var(--accent-color);
+}
+
+.hub-sidebar .hub-sidebar-portlet-title h2 {
+  margin: 0;
+  font-family: var(--heading-font-family);
+  font-size: 22px;
+  font-weight: 700;
+  line-height: 1.4;
+  color: #fff;
+  text-transform: uppercase;
+}
+
+/* body panel */
+.hub-sidebar .hub-sidebar-portlet-body {
+  padding: 20px 16px 16px;
+}
+
+.hub-sidebar .hub-sidebar-portlet-body > *:first-child {
+  margin-top: 0;
+}
+
+.hub-sidebar .hub-sidebar-portlet-body > *:last-child {
+  margin-bottom: 0;
+}
+
+.hub-sidebar .hub-sidebar-portlet-body p {
+  font-family: var(--body-font-family);
+  font-size: 18px;
+  line-height: 1.4;
+  color: var(--text-color);
+}
+
+.hub-sidebar .hub-sidebar-portlet-body ul {
+  margin: 8px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.hub-sidebar .hub-sidebar-portlet-body li {
+  margin: 0 0 8px;
+}
+
+.hub-sidebar .hub-sidebar-portlet-body a {
+  color: var(--link-color);
+  text-decoration: none;
+}
+
+.hub-sidebar .hub-sidebar-portlet-body a:hover {
+  text-decoration: underline;
+}
+
+/* social links row */
+.hub-sidebar .hub-sidebar-portlet-social ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.hub-sidebar .hub-sidebar-portlet-social li {
+  margin: 0;
+}
+
+/* "Découvrir" related-article items: thumbnail + title side by side */
+.hub-sidebar .hub-sidebar-portlet-article li {
+  display: grid;
+  grid-template-columns: 80px 1fr;
+  gap: 12px;
+  align-items: start;
+  margin: 0 0 16px;
+}
+
+.hub-sidebar .hub-sidebar-portlet-article li:last-child {
+  margin-bottom: 0;
+}
+
+.hub-sidebar .hub-sidebar-portlet-article li p {
+  margin: 0;
+}
+
+.hub-sidebar .hub-sidebar-portlet-article li p:first-child {
+  line-height: 0;
+}
+
+.hub-sidebar .hub-sidebar-portlet-article img {
+  width: 80px;
+  height: 60px;
+  object-fit: cover;
+}
+
+.hub-sidebar .hub-sidebar-portlet-article li p:last-child a {
+  font-family: var(--heading-font-family);
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--text-color);
+}

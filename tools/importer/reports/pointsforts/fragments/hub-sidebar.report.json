@@ -1,0 +1,11 @@
+{
+  "status": "success",
+  "url": "https://www.bcv.ch/pointsforts.html",
+  "path": "pointsforts/fragments/hub-sidebar",
+  "timestamp": "2026-07-06T11:20:52.414Z",
+  "title": "Points Forts Hub Sidebar",
+  "template": "hub-sidebar",
+  "blocks": [
+    "hub-sidebar"
+  ]
+}
