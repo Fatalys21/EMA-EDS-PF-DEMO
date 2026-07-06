@@ -36,18 +36,19 @@
   object-fit: cover;
 }
 
-/* "chevron" notch — white downward triangle cut into the bottom edge (source) */
+/* "chevron" notch — white left-pointing triangle cut into the right edge,
+ * spanning the full image height (source: .bcv-pfc-hero-article-teaser__media).
+ * A full-height box on the right, clipped to a left-pointing triangle so it
+ * scales with the responsive image rather than a fixed-height border. */
 .hero-article .hero-article-media::after {
   content: "";
   position: absolute;
+  top: 0;
   bottom: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 0;
-  height: 0;
-  border-style: none solid solid;
-  border-width: 0 58px 32px;
-  border-color: transparent transparent #fff;
+  right: 0;
+  width: 115px;
+  background-color: #fff;
+  clip-path: polygon(0 50%, 100% 0, 100% 100%);
   z-index: 2;
 }
 

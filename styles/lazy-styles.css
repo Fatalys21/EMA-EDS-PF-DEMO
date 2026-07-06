@@ -1,9 +1,11 @@
 /* add global styles that can be loaded post LCP here */
 
-/* Points Forts hub: two-column layout (article list + sidebar fragment).
- * Engages only on sections that contain the hub sidebar fragment. On desktop
- * the article wrappers fill the left column and the sidebar is pinned right,
- * spanning all rows; on mobile everything stacks (sidebar last). */
+/* Points Forts hub: full-width featured article, then a two-column area
+ * (teaser list + sidebar fragment) below it. Engages only on sections that
+ * contain the hub sidebar fragment. On desktop the featured hero spans the
+ * full width on the first row; the teaser cards fill the left column and the
+ * sidebar sits in the right column starting on the second row. On mobile
+ * everything stacks (sidebar last). */
 @media (width >= 900px) {
   main > .section:has(> .fragment-wrapper) {
     display: grid;
@@ -20,16 +22,24 @@
     padding: 0;
   }
 
-  /* article list occupies the left column */
-  main > .section:has(> .fragment-wrapper) > .hero-article-wrapper,
+  /* featured (latest) article spans the full width on the first row */
+  main > .section:has(> .fragment-wrapper) > .hero-article-wrapper {
+    grid-column: 1 / -1;
+  }
+
+  /* teaser cards fill the left column, flowing into rows below the hero */
   main > .section:has(> .fragment-wrapper) > .cards-teaser-wrapper {
     grid-column: 1;
   }
 
-  /* sidebar pinned to the right column, spanning the full height */
+  /* sidebar sits in the right column, starting on the second row (right after
+   * the full-width featured article). It's pinned to row 2 only; since no other
+   * items share column 2, its content extends downward beside the teaser list.
+   * (A multi-row span can't be used: with an implicit grid `-1` resolves to the
+   * start and a large explicit span mis-anchors the item into later rows.) */
   main > .section:has(> .fragment-wrapper) > .fragment-wrapper {
     grid-column: 2;
-    grid-row: 1 / -1;
+    grid-row: 2;
     align-self: start;
   }
 }
