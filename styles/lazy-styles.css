@@ -16,9 +16,12 @@
     padding: 0 32px;
   }
 
-  /* wrappers are direct grid items — drop their individual centering/padding */
+  /* wrappers are direct grid items — drop their individual centering/padding.
+   * Margins must be zeroed too: a non-zero block margin lets a spanning item
+   * (the sidebar below) resolve as centered within its tall grid area. */
   main > .section:has(> .fragment-wrapper) > div {
     max-width: none;
+    margin: 0;
     padding: 0;
   }
 
@@ -33,13 +36,13 @@
   }
 
   /* sidebar sits in the right column, starting on the second row (right after
-   * the full-width featured article). It's pinned to row 2 only; since no other
-   * items share column 2, its content extends downward beside the teaser list.
-   * (A multi-row span can't be used: with an implicit grid `-1` resolves to the
-   * start and a large explicit span mis-anchors the item into later rows.) */
+   * the full-width featured article) and spanning the teaser-card rows so it
+   * doesn't inflate any single row (which would leave a gap between cards).
+   * `align-self: start` (plus zeroed wrapper margins above) keeps it anchored
+   * to the top of its span rather than centered within it. */
   main > .section:has(> .fragment-wrapper) > .fragment-wrapper {
     grid-column: 2;
-    grid-row: 2;
+    grid-row: 2 / span 10;
     align-self: start;
   }
 }
