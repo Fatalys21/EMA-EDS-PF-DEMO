@@ -1,0 +1,59 @@
+/* Article author byline — BCV Points Forts
+   Photo left, "Par" + name (green link) + role stacked to the right. */
+
+.article-author {
+  margin: 32px 0;
+  padding: 24px 0 0;
+  border-top: 1px solid #8c8b8d;
+}
+
+.article-author .article-author-card {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.article-author .article-author-photo {
+  flex: 0 0 auto;
+  display: block;
+  line-height: 0;
+}
+
+.article-author .article-author-photo img {
+  width: 96px;
+  height: 96px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.article-author .article-author-info > * {
+  margin: 0;
+}
+
+.article-author .article-author-label {
+  font-family: var(--body-font-family);
+  font-size: 15px;
+  color: var(--text-muted-color);
+}
+
+.article-author .article-author-name {
+  font-family: var(--heading-font-family);
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1.3;
+}
+
+.article-author .article-author-name a {
+  color: var(--link-color);
+}
+
+.article-author .article-author-name a:hover {
+  color: var(--link-hover-color);
+  text-decoration: underline;
+}
+
+.article-author .article-author-role {
+  font-family: var(--body-font-family);
+  font-size: 15px;
+  color: var(--text-color);
+}

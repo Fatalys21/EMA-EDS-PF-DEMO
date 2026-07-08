@@ -69,8 +69,12 @@
           "instances": [".bcv-bc-20-video"]
         },
         {
-          "name": "cards-teaser",
-          "instances": [".relatedarticles .bcv-pfc-portlet__media"]
+          "name": "article-author",
+          "instances": [".bcv-pfc-author--article-page"]
+        },
+        {
+          "name": "article-related",
+          "instances": [".relatedarticles"]
         }
       ]
     }

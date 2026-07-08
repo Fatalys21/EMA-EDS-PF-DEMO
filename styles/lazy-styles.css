@@ -1,13 +1,40 @@
 /* add global styles that can be loaded post LCP here */
 
+/* Article stage — the featured image that leads an image-based article, framed
+   consistently with the video stage (embed-video) used by video articles. */
+.article-stage {
+  margin: 0;
+  line-height: 0;
+}
+
+.article-stage picture {
+  display: block;
+}
+
+.article-stage img {
+  width: 100%;
+  aspect-ratio: 2048 / 550;
+  object-fit: cover;
+}
+
 /* Points Forts hub: full-width featured article, then a two-column area
  * (teaser list + sidebar fragment) below it. Engages only on sections that
  * contain the hub sidebar fragment. On desktop the featured hero spans the
  * full width on the first row; the teaser cards fill the left column and the
  * sidebar sits in the right column starting on the second row. On mobile
  * everything stacks (sidebar last). */
+
+/* The homepage feed is a single article-feed block that generates a hero-article
+ * teaser followed by cards-teaser teasers. Unwrap the block (display: contents)
+ * so those generated teasers become direct grid items of the hub section, letting
+ * the sidebar layout below treat them exactly as if they were authored inline. */
+.article-feed-wrapper,
+.article-feed {
+  display: contents;
+}
+
 @media (width >= 900px) {
-  main > .section:has(> .fragment-wrapper) {
+  main > .section:has(.fragment-wrapper):has(.article-feed) {
     display: grid;
     grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
     column-gap: 32px;
@@ -19,19 +46,19 @@
   /* wrappers are direct grid items — drop their individual centering/padding.
    * Margins must be zeroed too: a non-zero block margin lets a spanning item
    * (the sidebar below) resolve as centered within its tall grid area. */
-  main > .section:has(> .fragment-wrapper) > div {
+  main > .section:has(.fragment-wrapper):has(.article-feed) > div {
     max-width: none;
     margin: 0;
     padding: 0;
   }
 
   /* featured (latest) article spans the full width on the first row */
-  main > .section:has(> .fragment-wrapper) > .hero-article-wrapper {
+  main > .section:has(.fragment-wrapper):has(.article-feed) .hero-article {
     grid-column: 1 / -1;
   }
 
   /* teaser cards fill the left column, flowing into rows below the hero */
-  main > .section:has(> .fragment-wrapper) > .cards-teaser-wrapper {
+  main > .section:has(.fragment-wrapper):has(.article-feed) .cards-teaser {
     grid-column: 1;
   }
 
@@ -40,7 +67,7 @@
    * doesn't inflate any single row (which would leave a gap between cards).
    * `align-self: start` (plus zeroed wrapper margins above) keeps it anchored
    * to the top of its span rather than centered within it. */
-  main > .section:has(> .fragment-wrapper) > .fragment-wrapper {
+  main > .section:has(.fragment-wrapper):has(.article-feed) > .fragment-wrapper {
     grid-column: 2;
     grid-row: 2 / span 10;
     align-self: start;

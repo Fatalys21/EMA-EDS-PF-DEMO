@@ -1,0 +1,8 @@
+/* Homepage article feed — renders a hero-article teaser followed by a stack of
+   cards-teaser teasers. Visual styling comes from those reused blocks; this file
+   only owns the container spacing. */
+
+.article-feed .hero-article,
+.article-feed .cards-teaser {
+  margin: 0;
+}

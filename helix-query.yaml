@@ -1,0 +1,61 @@
+version: 1
+
+indices:
+  # Points Forts articles — powers the homepage auto-feed and related-articles fallback.
+  # One row per article detail page, enriched with the fields the feed/related blocks read.
+  articles:
+    include:
+      - '/pointsforts/**'
+    exclude:
+      - '/pointsforts.html'
+      - '/pointsforts/auteurs/**'
+      - '/pointsforts/fragments/**'
+      - '/pointsforts/recherche.html'
+    target: /pointsforts/query-index.json
+    properties:
+      title:
+        select: head > meta[property="og:title"]
+        value: attribute(el, 'content')
+      description:
+        select: head > meta[name="description"]
+        value: attribute(el, 'content')
+      image:
+        select: head > meta[property="og:image"]
+        value: attribute(el, 'content')
+      author:
+        select: head > meta[name="author"]
+        value: attribute(el, 'content')
+      authorPath:
+        select: head > meta[name="author-path"]
+        value: attribute(el, 'content')
+      category:
+        select: head > meta[name="category"]
+        value: attribute(el, 'content')
+      tags:
+        select: head > meta[name="keywords"]
+        value: attribute(el, 'content')
+      publicationDate:
+        select: head > meta[name="publication-date"]
+        value: attribute(el, 'content')
+      template:
+        select: head > meta[name="template"]
+        value: attribute(el, 'content')
+      lastModified:
+        select: none
+        value: parseTimestamp(headers['last-modified'], 'ddd, DD MMM YYYY hh:mm:ss GMT')
+
+  # Points Forts authors — powers the article-author byline (photo, name, role from a single link).
+  authors:
+    include:
+      - '/pointsforts/auteurs/**'
+    target: /pointsforts/authors-index.json
+    properties:
+      name:
+        select: head > meta[property="og:title"]
+        value: attribute(el, 'content')
+      role:
+        select: head > meta[name="role"]
+        value: attribute(el, 'content')
+      image:
+        select: head > meta[property="og:image"]
+        value: attribute(el, 'content')
