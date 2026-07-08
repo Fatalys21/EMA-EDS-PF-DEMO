@@ -1,3 +1,4 @@
+import { loadCSS } from '../../scripts/aem.js';
 import { getArticles, normalizePath, parseTags } from '../../scripts/article-data.js';
 
 /**
@@ -113,9 +114,15 @@ export default async function decorate(block) {
   block.append(frag);
 
   // Decorate the generated teasers with the existing, already-styled blocks.
+  // Load their CSS too: because these blocks are created here (not via the normal
+  // EDS loadBlock flow) their stylesheets aren't auto-injected, so the chevron
+  // notch and horizontal card layout would be missing without this.
+  const base = window.hlx.codeBasePath;
   const [{ default: decorateHero }, { default: decorateCards }] = await Promise.all([
     import('../hero-article/hero-article.js'),
     import('../cards-teaser/cards-teaser.js'),
+    loadCSS(`${base}/blocks/hero-article/hero-article.css`),
+    loadCSS(`${base}/blocks/cards-teaser/cards-teaser.css`),
   ]);
   block.querySelectorAll('.hero-article').forEach((el) => decorateHero(el));
   block.querySelectorAll('.cards-teaser').forEach((el) => decorateCards(el));
