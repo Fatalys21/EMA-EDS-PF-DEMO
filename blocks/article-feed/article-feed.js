@@ -87,13 +87,25 @@ function buildCard(article) {
 }
 
 export default async function decorate(block) {
+  // Only real article-detail pages belong in the feed. Guard against index rows
+  // that lack a template (older content) by also requiring a dated, sectioned
+  // path (/pointsforts/{section}/{year}/{slug}) and excluding the hub itself.
+  const isArticle = (a) => {
+    const path = normalizePath(a.path);
+    if (path === '/pointsforts') return false;
+    if (a.template && a.template !== 'article-detail') return false;
+    return /^\/pointsforts\/[^/]+\/\d{4}\/[^/]+$/.test(path);
+  };
+
   const articles = (await getArticles())
-    .filter((a) => a.template === 'article-detail' || !a.template)
+    .filter(isArticle)
     .sort((a, b) => new Date(b.publicationDate || 0) - new Date(a.publicationDate || 0));
 
-  block.textContent = '';
+  // If the index has no usable articles yet (e.g. before publish), leave the
+  // authored hero/cards in place rather than blanking the homepage.
   if (!articles.length) return;
 
+  block.textContent = '';
   const [latest, ...rest] = articles;
   const frag = document.createDocumentFragment();
   frag.append(buildHero(latest));

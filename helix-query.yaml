@@ -5,12 +5,11 @@ indices:
   # One row per article detail page, enriched with the fields the feed/related blocks read.
   articles:
     include:
-      - '/pointsforts/**'
+      - '/pointsforts/*/**'
     exclude:
-      - '/pointsforts.html'
       - '/pointsforts/auteurs/**'
       - '/pointsforts/fragments/**'
-      - '/pointsforts/recherche.html'
+      - '/pointsforts/recherche'
     target: /pointsforts/query-index.json
     properties:
       title:
