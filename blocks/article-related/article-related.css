@@ -1,21 +1,52 @@
 /* Related articles — BCV Points Forts "CES ARTICLES POURRAIENT VOUS INTÉRESSER"
-   A 3-up grid of cards: image on top, green title, serif excerpt, "Suite" link. */
+   Full-width green header bar with white uppercase heading, over a grey panel.
+   Cards are horizontal: small thumbnail left, title + excerpt + "Suite" right. */
 
-.article-related > ul {
-  list-style: none;
+/* The whole related section (heading + block) sits on a grey panel. The heading
+   is authored just before the block, so style the section wrapper. */
+body.article-detail main > .section:has(.article-related) {
+  background-color: var(--light-color);
   margin: 0;
   padding: 0;
+}
+
+body.article-detail main > .section:has(.article-related) > div {
+  max-width: none;
+  padding: 0;
+}
+
+/* Green header bar spanning the section, white uppercase heading. */
+body.article-detail main > .section:has(.article-related) h2 {
+  margin: 0;
+  padding: 0 32px;
+  background-color: var(--accent-color);
+  font-family: var(--heading-font-family);
+  font-size: 22px;
+  font-weight: 700;
+  line-height: 54px;
+  text-transform: uppercase;
+  color: #fff;
+}
+
+/* Card list — 3 columns on a padded grey panel. */
+.article-related > ul {
+  list-style: none;
+  margin: 0 auto;
+  padding: 30px 32px;
+  max-width: var(--content-max-width);
   display: grid;
   grid-template-columns: 1fr;
-  gap: 32px;
+  gap: 30px;
 }
 
+/* Card — horizontal: thumbnail left, text right. */
 .article-related > ul > li {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: 150px 1fr;
+  gap: 16px;
+  align-items: start;
 }
 
-/* image with the BCV chevron notch cut into the bottom-left edge */
 .article-related .article-related-card-image {
   position: relative;
   overflow: hidden;
@@ -27,41 +58,27 @@
 }
 
 .article-related .article-related-card-image img {
-  width: 100%;
-  aspect-ratio: 5 / 3;
+  width: 150px;
+  height: 120px;
   object-fit: cover;
-}
-
-.article-related .article-related-card-image::after {
-  content: "";
-  position: absolute;
-  top: 50%;
-  left: 0;
-  transform: translateY(-50%);
-  width: 0;
-  height: 0;
-  border-style: solid none solid solid;
-  border-width: 40px 0 40px 24px;
-  border-color: transparent transparent transparent #fff;
-  z-index: 2;
 }
 
 .article-related .article-related-card-body {
   display: flex;
   flex-direction: column;
-  padding-top: 12px;
 }
 
 .article-related .article-related-card-body > * {
   margin: 0;
 }
 
+/* Title — PT Serif bold green. */
 .article-related .article-related-card-title {
-  margin: 0 0 10px;
-  font-family: var(--heading-font-family);
-  font-size: 21px;
+  margin: 0 0 6px;
+  font-family: "PT Serif", georgia, "Times New Roman", serif;
+  font-size: 18px;
   font-weight: 700;
-  line-height: 1.1;
+  line-height: 1.5;
   color: var(--link-color);
 }
 
@@ -70,26 +87,22 @@
   text-decoration: none;
 }
 
+/* Excerpt — PT Serif regular black. */
 .article-related .article-related-card-excerpt {
-  margin: 0 0 8px;
+  margin: 0 0 6px;
   font-family: "PT Serif", georgia, "Times New Roman", serif;
   font-size: 18px;
   font-weight: 400;
-  line-height: 26px;
+  line-height: 1.5;
   color: var(--text-color);
 }
 
+/* "Suite" link — inline green, PT Serif. */
 .article-related .article-related-card-suite a {
   font-family: "PT Serif", georgia, "Times New Roman", serif;
   font-size: 18px;
   color: var(--link-color);
   text-decoration: none;
-}
-
-.article-related .article-related-card-suite a::before {
-  content: "\25B8";
-  margin-right: 4px;
-  font-size: 0.8em;
 }
 
 .article-related .article-related-card-title a:hover,

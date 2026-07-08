@@ -296,9 +296,12 @@ header nav .nav-sections ul > li > ul > li {
   }
 }
 
-/* tools (Contact) */
+/* tools (Contact + search) */
 header nav .nav-tools {
   grid-area: tools;
+  display: flex;
+  align-items: center;
+  gap: 16px;
 }
 
 header nav .nav-tools a:any-link {
@@ -308,4 +311,83 @@ header nav .nav-tools a:any-link {
 header nav .nav-tools a:hover {
   color: var(--link-color);
   text-decoration: none;
+}
+
+/* search box — bordered grey field with a magnifier submit button, matching the
+   source "Rechercher" box. */
+header nav .nav-search {
+  display: flex;
+  align-items: center;
+  height: 28px;
+  border: 1px solid var(--border-color);
+  background-color: var(--background-color);
+}
+
+header nav .nav-search input {
+  box-sizing: border-box;
+  width: 150px;
+  height: 100%;
+  border: 0;
+  padding: 0 8px;
+  background: transparent;
+  font-family: var(--heading-font-family);
+  font-size: 14px;
+  color: var(--text-color);
+}
+
+header nav .nav-search input::placeholder {
+  color: #707070;
+  text-transform: uppercase;
+}
+
+header nav .nav-search input:focus {
+  outline: none;
+}
+
+header nav .nav-search button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  color: #707070;
+  cursor: pointer;
+}
+
+/* magnifier icon drawn with CSS (circle + handle) */
+header nav .nav-search-icon {
+  position: relative;
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  border: 2px solid currentcolor;
+  border-radius: 50%;
+}
+
+header nav .nav-search-icon::after {
+  content: '';
+  position: absolute;
+  top: 11px;
+  left: 9px;
+  width: 6px;
+  height: 2px;
+  background: currentcolor;
+  transform: rotate(45deg);
+  transform-origin: left center;
+}
+
+header nav .nav-search button:hover {
+  color: var(--link-color);
+}
+
+/* On mobile the search box sits in the collapsed tools row; keep it usable. */
+@media (width < 900px) {
+  header nav[aria-expanded='true'] .nav-tools {
+    flex-wrap: wrap;
+  }
 }

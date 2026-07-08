@@ -146,6 +146,27 @@ export default async function decorate(block) {
     brandLink.closest('.button-container').className = '';
   }
 
+  // Turn the "Rechercher" tools link into a search form (input + submit button),
+  // matching the source header's search box. The link's href is the search page.
+  const navTools = nav.querySelector('.nav-tools');
+  if (navTools) {
+    const searchLink = [...navTools.querySelectorAll('a')].find((a) => /rechercher/i.test(a.textContent));
+    if (searchLink) {
+      const action = searchLink.getAttribute('href');
+      const li = searchLink.closest('li');
+      const form = document.createElement('form');
+      form.className = 'nav-search';
+      form.setAttribute('role', 'search');
+      form.action = action;
+      form.innerHTML = `
+        <input type="search" name="q" placeholder="Rechercher" aria-label="Rechercher">
+        <button type="submit" aria-label="Rechercher"><span class="nav-search-icon"></span></button>`;
+      if (li) li.remove();
+      else searchLink.remove();
+      navTools.append(form);
+    }
+  }
+
   const navSections = nav.querySelector('.nav-sections');
   if (navSections) {
     navSections.querySelectorAll(':scope .default-content-wrapper > ul > li').forEach((navSection) => {

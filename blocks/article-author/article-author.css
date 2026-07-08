@@ -1,16 +1,16 @@
 /* Article author byline — BCV Points Forts
-   Photo left, "Par" + name (green link) + role stacked to the right. */
+   Large rectangular photo on the left, "Par" label, then the author name (PT Serif
+   green) followed inline by the role. Matches the source .bcv-pfc-author layout. */
 
 .article-author {
-  margin: 32px 0;
-  padding: 24px 0 0;
-  border-top: 1px solid #8c8b8d;
+  margin: 40px 0;
+  padding: 0;
 }
 
 .article-author .article-author-card {
   display: flex;
-  align-items: center;
-  gap: 20px;
+  align-items: flex-start;
+  gap: 24px;
 }
 
 .article-author .article-author-photo {
@@ -20,40 +20,58 @@
 }
 
 .article-author .article-author-photo img {
-  width: 96px;
-  height: 96px;
-  border-radius: 50%;
+  width: 138px;
+  height: 179px;
+  border-radius: 0;
   object-fit: cover;
+}
+
+.article-author .article-author-info {
+  align-self: center;
 }
 
 .article-author .article-author-info > * {
   margin: 0;
 }
 
+/* "Par" label — PT Serif, small, sits above the name. */
 .article-author .article-author-label {
-  font-family: var(--body-font-family);
-  font-size: 15px;
-  color: var(--text-muted-color);
-}
-
-.article-author .article-author-name {
-  font-family: var(--heading-font-family);
-  font-size: 18px;
+  font-family: "PT Serif", georgia, "Times New Roman", serif;
+  font-size: 20px;
   font-weight: 700;
-  line-height: 1.3;
+  line-height: 1.5;
+  color: var(--text-color);
 }
 
-.article-author .article-author-name a {
+/* Author name — PT Serif bold green, large. */
+.article-author .article-author-name {
+  display: inline;
+  font-family: "PT Serif", georgia, "Times New Roman", serif;
+  font-size: 26px;
+  font-weight: 700;
+  line-height: 1.5;
   color: var(--link-color);
 }
 
+.article-author .article-author-name a {
+  color: inherit;
+  text-decoration: none;
+}
+
 .article-author .article-author-name a:hover {
-  color: var(--link-hover-color);
   text-decoration: underline;
 }
 
+/* Role — sits inline after the name, PT Serif black, regular. */
 .article-author .article-author-role {
-  font-family: var(--body-font-family);
-  font-size: 15px;
+  display: inline;
+  font-family: "PT Serif", georgia, "Times New Roman", serif;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 1.5;
   color: var(--text-color);
+}
+
+.article-author .article-author-role::before {
+  content: ", ";
 }

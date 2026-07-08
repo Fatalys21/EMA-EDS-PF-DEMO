@@ -162,6 +162,11 @@ function decorateArticleStage(main) {
  */
 function buildAutoBlocks(main) {
   try {
+    // Tag article-detail pages (/pointsforts/{section}/{year}/{slug}) so article
+    // styling can be scoped away from the hub, author, and search pages.
+    if (/\/pointsforts\/[^/]+\/\d{4}\/[^/]+$/.test(window.location.pathname.replace(/\.html$/, ''))) {
+      document.body.classList.add('article-detail');
+    }
     decorateArticleStage(main);
     buildFeedAutoBlock(main);
     buildAuthorAutoBlock(main);

@@ -17,6 +17,103 @@
   object-fit: cover;
 }
 
+/* ============================================================================
+ * Article detail page (body.article-detail) — matches the BCV Points Forts
+ * source article layout: white page, full-width stage, a narrower centered body
+ * column, green title, bordered keyword chips. Scoped to article pages so the
+ * hub, author, and search pages are unaffected.
+ * ========================================================================== */
+
+/* Page is white; the imported sections all carry the "light" (grey) style, so
+   reset them to white. The related-articles section keeps a grey panel below. */
+body.article-detail main > .section.light {
+  background-color: var(--background-color);
+  margin: 0;
+  padding: 0;
+}
+
+/* Stage section spans full width with no side padding (video/featured image). */
+body.article-detail main > .section:first-child > div {
+  max-width: none;
+  padding: 0;
+}
+
+body.article-detail main > .section:first-child {
+  margin-bottom: 24px;
+}
+
+/* Stage video/image spans the full content width (no 1200px cap, no side gap). */
+body.article-detail main > .section:first-child .embed-video {
+  max-width: var(--content-max-width);
+  margin: 0 auto;
+}
+
+body.article-detail main > .section:first-child .article-stage {
+  max-width: var(--content-max-width);
+  margin: 0 auto;
+}
+
+/* Category + date line directly under the stage. */
+body.article-detail main > .section:first-child p {
+  max-width: var(--content-max-width);
+  margin: 8px auto;
+  padding: 0 32px;
+  font-family: var(--body-font-family);
+  font-size: 15px;
+  line-height: 1.5;
+  color: var(--text-color);
+}
+
+body.article-detail main > .section:first-child p a {
+  margin-right: 8px;
+  font-family: var(--heading-font-family);
+  font-size: 19px;
+  font-weight: 700;
+  color: var(--link-color);
+}
+
+/* Body column (tags, title, lead, body copy, author) — narrower, centered. */
+body.article-detail main > .section:nth-child(2) > div {
+  max-width: 924px;
+}
+
+/* Title — large, green, matches the source H1. */
+body.article-detail main h1 {
+  margin: 0 0 24px;
+  font-family: var(--body-font-family);
+  font-size: 40px;
+  font-weight: 700;
+  line-height: 1.5;
+  color: var(--accent-color);
+}
+
+/* Keyword tags — "Mots-clés:" label + bordered grey uppercase chips. */
+body.article-detail main p + ul:has(li a[href*="tag="]) {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 0 0 16px;
+  padding: 0;
+  list-style: none;
+}
+
+body.article-detail main li a[href*="tag="] {
+  display: inline-block;
+  padding: 0 4px;
+  border: 1px solid #707070;
+  font-family: var(--heading-font-family);
+  font-size: 13px;
+  line-height: 18px;
+  text-transform: uppercase;
+  color: #707070;
+  text-decoration: none;
+}
+
+body.article-detail main li a[href*="tag="]:hover {
+  color: var(--text-color);
+  border-color: var(--text-color);
+}
+
 /* Points Forts hub: full-width featured article, then a two-column area
  * (teaser list + sidebar fragment) below it. Engages only on sections that
  * contain the hub sidebar fragment. On desktop the featured hero spans the
