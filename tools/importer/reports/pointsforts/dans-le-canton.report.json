@@ -1,0 +1,12 @@
+{
+  "status": "success",
+  "url": "https://www.bcv.ch/pointsforts.html?category=dans-le-canton",
+  "path": "pointsforts/dans-le-canton",
+  "timestamp": "2026-07-08T11:54:04.698Z",
+  "title": "Dans le canton | POINTSFORTS - BCV",
+  "template": "category-hub",
+  "category": "Dans le canton",
+  "blocks": [
+    "article-feed"
+  ]
+}

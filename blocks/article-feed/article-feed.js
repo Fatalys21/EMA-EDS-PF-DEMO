@@ -3,12 +3,15 @@ import { getArticles, normalizePath, parseTags } from '../../scripts/article-dat
 
 /**
  * Homepage article feed ("article-feed").
- * Authoring contract: a single empty block —
+ * Authoring contract: a single block, optionally with a category label —
+ *   | article-feed |          → all articles (homepage)
  *   | article-feed |
+ *   | Marchés       |          → only articles in the "Marchés" category
  * It fetches the article index, sorts by publication date (newest first), and
  * renders the latest article as a hero teaser and the remainder as a list of
  * teaser cards, reusing the already-styled hero-article and cards-teaser blocks.
- * The homepage therefore stays up to date automatically as articles are added.
+ * The homepage and category pages therefore stay up to date automatically as
+ * articles are added.
  * @param {Element} block The block element
  */
 
@@ -88,6 +91,10 @@ function buildCard(article) {
 }
 
 export default async function decorate(block) {
+  // Optional category filter: if the block has authored text (e.g. "Marchés"),
+  // limit the feed to that category. Read it before clearing the block.
+  const categoryFilter = block.textContent.trim().toLowerCase();
+
   // Only real article-detail pages belong in the feed. Guard against index rows
   // that lack a template (older content) by also requiring a dated, sectioned
   // path (/pointsforts/{section}/{year}/{slug}) and excluding the hub itself.
@@ -100,6 +107,7 @@ export default async function decorate(block) {
 
   const articles = (await getArticles())
     .filter(isArticle)
+    .filter((a) => !categoryFilter || (a.category || '').trim().toLowerCase() === categoryFilter)
     .sort((a, b) => new Date(b.publicationDate || 0) - new Date(a.publicationDate || 0));
 
   // If the index has no usable articles yet (e.g. before publish), leave the

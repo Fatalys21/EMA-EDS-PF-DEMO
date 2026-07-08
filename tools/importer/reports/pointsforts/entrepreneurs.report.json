@@ -1,0 +1,12 @@
+{
+  "status": "success",
+  "url": "https://www.bcv.ch/pointsforts.html?category=entrepreneurs",
+  "path": "pointsforts/entrepreneurs",
+  "timestamp": "2026-07-08T11:53:58.358Z",
+  "title": "Entreprises | POINTSFORTS - BCV",
+  "template": "category-hub",
+  "category": "Entreprises",
+  "blocks": [
+    "article-feed"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "status": "success",
+  "url": "https://www.bcv.ch/pointsforts.html?category=votre-argent",
+  "path": "pointsforts/votre-argent",
+  "timestamp": "2026-07-08T11:53:53.979Z",
+  "title": "Votre argent | POINTSFORTS - BCV",
+  "template": "category-hub",
+  "category": "Votre argent",
+  "blocks": [
+    "article-feed"
+  ]
+}

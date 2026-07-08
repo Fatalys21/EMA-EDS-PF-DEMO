@@ -1,0 +1,12 @@
+{
+  "status": "success",
+  "url": "https://www.bcv.ch/pointsforts.html?category=marches",
+  "path": "pointsforts/marches",
+  "timestamp": "2026-07-08T11:53:47.557Z",
+  "title": "Marchés | POINTSFORTS - BCV",
+  "template": "category-hub",
+  "category": "Marchés",
+  "blocks": [
+    "article-feed"
+  ]
+}
